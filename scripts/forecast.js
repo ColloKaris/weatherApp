@@ -4,7 +4,7 @@ const key = 'U2FmliuCgYgEonPTgBUHW8n9rmxLuoWo';
 const getWeather = async (id) => {
     const config = {params: {apikey:key}}
     const response = await axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${id}`, config);
-    console.log(response.data[0]);
+    return response.data[0];
 }
 
 
@@ -13,7 +13,7 @@ const getCity = async (city) => {
     try{
         const config = {params: {apikey:key, q:city}}
         const response = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search`, config)
-        return response.data[0].Key;
+        return response.data[0];
         //console.log(response.data[0].Key);
     }
     catch(e){
@@ -28,11 +28,14 @@ const getCity = async (city) => {
 //then pass that data into a .then part of a promise handling
 //later on
 //try to see if this can be done with just async and await
-const cityKey = getCity('Nairobi')
-.then(data => {
-    getWeather(data)
-})
-.catch
+// const cityKey = getCity('Nairobi')
+// .then(data => {
+//     getWeather(data)
+// }).catch((e) => {
+//     console.log("Error", e);
+// });
+
+
 // getWeather(cityKey);
 
-console.log(cityKey);
+//console.log(cityKey);
