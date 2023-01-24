@@ -20,22 +20,3 @@ const getCity = async (city) => {
         console.log("ERROR!!!", e)
     }
 }
-
-//This next line returns a promise, therefore we need to await it
-//then we need to get the data is resolve with
-//so find out how to data out of a fulfilled promise
-//an easy way I have used it to just chain on .then, 
-//then pass that data into a .then part of a promise handling
-//later on
-//try to see if this can be done with just async and await
-// const cityKey = getCity('Nairobi')
-// .then(data => {
-//     getWeather(data)
-// }).catch((e) => {
-//     console.log("Error", e);
-// });
-
-
-// getWeather(cityKey);
-
-//console.log(cityKey);

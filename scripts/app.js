@@ -1,15 +1,12 @@
 const cityForm = document.querySelector('form');
 
-//is an asycn function becasue in this function, we will be calling
+//is an async function becasue in this function, we will be calling
 //asynchronous function and thus it is going to take some time to complete
 const updateCity = async (city) => {
     const cityDets = await getCity(city);
     const weather = await getWeather(cityDets.Key);
     //return an object from this function
-    return {
-        cityDets: cityDets,
-        weather: weather
-    }
+    return {cityDets,weather};
 }
 
 cityForm.addEventListener('submit', (e) => {
