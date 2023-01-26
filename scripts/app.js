@@ -70,4 +70,16 @@ cityForm.addEventListener('submit', (e) => {
         .catch((e) => {
             console.log("ERROR!!", e)
         })
+
+    //set local storage
+    //this will always be the most recent location that the user
+    //has entered this is because it will be rest it time a new
+    //value is entered
+    localStorage.setItem('city', city);
 })
+
+if(localStorage.getItem('city')){
+    updateCity(localStorage.getItem('city'))
+    .then(data => updateUI(data))
+    .catch(err => console.log("ERROR!!!", err))
+}
